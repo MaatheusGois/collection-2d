@@ -10,8 +10,12 @@ import UIKit
 
 final class ViewController: UIViewController {
 
+    // Views
+
     private lazy var scrollView = buildScrollView()
     private lazy var collectionView = buildCollection()
+
+    // Properties
 
     private let elementsCount = 100
 
@@ -26,10 +30,10 @@ final class ViewController: UIViewController {
 
 // MARK: - Constans
 
-extension ViewController {
-    private enum Constants {
-        static var elemWidth: CGFloat = 100
-        static let elemHeight: CGFloat = 100
+private extension ViewController {
+    enum Constants {
+        static var cellWidth: CGFloat = 100
+        static let cellHeight: CGFloat = 100
 
         static let elementsByRow: CGFloat = 10
         static let spacingBetweenCells: CGFloat = 8
@@ -37,10 +41,15 @@ extension ViewController {
 
         // Not change
 
-        static let elemSize: CGSize = .init(width: elemWidth, height: elemHeight)
+        static let cellSize: CGSize = .init(
+            width: cellWidth,
+            height: cellHeight
+        )
+
         static let collectionWidth =
-            elemWidth * elementsByRow +
+        cellWidth * elementsByRow +
         elementsByRow * spacingBetweenCells * leftSpacing
+
         static let contentInset = UIEdgeInsets(
             top: spacingBetweenCells,
             left: spacingBetweenCells,
@@ -80,15 +89,12 @@ fileprivate extension ViewController {
     }
 
     func setupCollectionView() {
-        collectionView.delegate = self
         collectionView.dataSource = self
 
         collectionView.contentInset = Constants.contentInset
         scrollView.contentSize = collectionView.frame.size
     }
 }
-
-extension ViewController: UICollectionViewDelegate {}
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -116,7 +122,7 @@ extension ViewController {
 
     func buildCollection() -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = Constants.elemSize
+        layout.itemSize = Constants.cellSize
         layout.minimumLineSpacing = Constants.spacingBetweenCells
         layout.minimumInteritemSpacing = Constants.spacingBetweenCells
 
@@ -129,7 +135,7 @@ extension ViewController {
             CustomCollectionViewCell.self,
             forCellWithReuseIdentifier: CustomCollectionViewCell.identifier
         )
-
+        collection.showsVerticalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
 
         return collection
