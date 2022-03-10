@@ -1,9 +1,9 @@
 //
-//  ViewController.swift
+//  Extensions.swift
 //  CustomCollectionView
 //
-//  Created by Ahmed Abdallah on 10.12.2019.
-//  Copyright © 2019 4A5. All rights reserved.
+//  Created by Matheus Gois on 10/03/22.
+//  Copyright © 2022 4A5. All rights reserved.
 //
 
 import UIKit
@@ -39,16 +39,14 @@ private extension ViewController {
         static let spacingBetweenCells: CGFloat = 8
         static let leftSpacing: CGFloat = 1.3
 
-        // Not change
+        // Not need change
 
         static let cellSize: CGSize = .init(
             width: cellWidth,
             height: cellHeight
         )
 
-        static let collectionWidth =
-        cellWidth * elementsByRow +
-        elementsByRow * spacingBetweenCells * leftSpacing
+        static let collectionWidth = cellWidth * elementsByRow + elementsByRow * spacingBetweenCells * leftSpacing
 
         static let contentInset = UIEdgeInsets(
             top: spacingBetweenCells,

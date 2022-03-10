@@ -1,9 +1,9 @@
 //
-//  SceneDelegate.swift
+//  Extensions.swift
 //  CustomCollectionView
 //
-//  Created by Ahmed Abdallah on 10.12.2019.
-//  Copyright © 2019 4A5. All rights reserved.
+//  Created by Matheus Gois on 10/03/22.
+//  Copyright © 2022 4A5. All rights reserved.
 //
 
 import UIKit
