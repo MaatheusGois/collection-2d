@@ -28,24 +28,24 @@ final class ViewController: UIViewController {
 
 extension ViewController {
     private enum Constants {
-        static var elemWidth: CGFloat = 300
+        static var elemWidth: CGFloat = 100
         static let elemHeight: CGFloat = 100
 
         static let elementsByRow: CGFloat = 10
         static let spacingBetweenCells: CGFloat = 8
-        static let leftSpacing: CGFloat = 424
+        static let leftSpacing: CGFloat = 1.3
 
         // Not change
 
         static let elemSize: CGSize = .init(width: elemWidth, height: elemHeight)
         static let collectionWidth =
-            Constants.elemWidth * Constants.elementsByRow +
-        Constants.elementsByRow * Constants.spacingBetweenCells * 1.3
+            elemWidth * elementsByRow +
+        elementsByRow * spacingBetweenCells * leftSpacing
         static let contentInset = UIEdgeInsets(
-            top: Constants.spacingBetweenCells,
-            left: Constants.spacingBetweenCells,
-            bottom: Constants.spacingBetweenCells,
-            right: Constants.spacingBetweenCells
+            top: spacingBetweenCells,
+            left: spacingBetweenCells,
+            bottom: spacingBetweenCells,
+            right: spacingBetweenCells
         )
     }
 }
