@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  SceneDelegate.swift
 //  CustomCollectionView
 //
 //  Created by Matheus Gois on 10/03/22.

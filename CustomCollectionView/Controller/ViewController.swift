@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  ViewController.swift
 //  CustomCollectionView
 //
 //  Created by Matheus Gois on 10/03/22.
