@@ -10,16 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // MARK: - Views
-
-    private var scrollView = UIScrollView()
-    private lazy var collectionView = buildCollection()
-
-    // MARK: - Properties
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var cVWidth: NSLayoutConstraint!
 
     private let elementsCount = 1000
 
-    // MARK: - LifeCycle
+    // LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +30,7 @@ extension ViewController {
     // MARK: - Constans
 
     private enum Constants {
-        static var elemWidth: CGFloat = 30
+        static var elemWidth: CGFloat = 300
         static let elemHeight: CGFloat = 100
 
         static let elementsByRow: CGFloat = 100
@@ -59,7 +56,7 @@ extension ViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
 
-//        cVWidth.constant = Constants.collectionWidth
+        cVWidth.constant = Constants.collectionWidth
         collectionView.contentInset = Constants.contentInset
         scrollView.contentSize = collectionView.frame.size
 
@@ -69,21 +66,6 @@ extension ViewController {
         )
     }
 }
-
-// MARK: - Setup
-
-extension ViewController {
-    func setupViewHierarchy() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(collectionView)
-    }
-
-    func setupConstraints() {
-         tableView.constraintToSuperview()
-    }
-}
-
-// MARK: - Collection
 
 extension ViewController: UICollectionViewDelegate {}
 
@@ -100,7 +82,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout{
+extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -123,13 +105,5 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
         minimumInteritemSpacingForSectionAt section: Int
     ) -> CGFloat {
         return Constants.spacingBetweenCells
-    }
-}
-
-// MARK: - Builders
-
-fileprivate extension ViewController {
-    func buildCollection() -> UICollectionView {
-        let collection = UICollectionView()
     }
 }
